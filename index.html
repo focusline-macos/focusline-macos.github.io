@@ -57,12 +57,11 @@
           <p>Move your pointer over the page below. Switch Modes and tune the look — exactly like the app does on your whole screen.</p>
         </div>
         <div class="demo">
+         <div class="demo-stage">
+          <!-- The Mac shows the screen-wide effect; the app panel controls it. -->
           <div class="macbook">
            <div class="mb-screen">
-            <div class="demo-card framed">
-            <div class="demo-grid">
-              <!-- Reader pane -->
-              <div class="reader" id="reader">
+            <div class="reader" id="reader">
                 <div class="layer" id="dim"></div>
                 <div class="layer" id="band"></div>
                 <div class="layer" id="bar"></div>
@@ -71,13 +70,21 @@
                   <p>There is a particular kind of tiredness that comes not from reading too much, but from reading without an anchor. The eye drifts, the line is lost, and the same sentence is read three times before the mind catches up.</p>
                   <p>A guide changes that. A quiet line under the words gives the eye something to rest against, and the page stops sliding. Dim the rest of the screen and the world narrows to a single thought at a time.</p>
                   <p>None of this is new — it is how a finger under the line has always worked. Focusline simply lends you one that never tires, in whatever shape and colour reads best to you.</p>
-                  <p>Try it: glide down this paragraph and watch the guide keep pace. Change the Mode on the right, pick a colour, widen the band. Make it yours.</p>
+                  <p>Try it: glide down this paragraph and watch the guide keep pace. Change the Mode in the app panel, pick a colour, widen the band. Make it yours.</p>
                 </div>
                 <div class="reader-hint">↑ move your pointer over the text — the guide is live</div>
-              </div>
+            </div>
+           </div>
+           <div class="mb-base"></div>
+          </div>
 
-              <!-- Controls -->
-              <div class="controls">
+          <!-- Controls — styled like the Focusline app window -->
+          <aside class="controls app-panel">
+            <div class="app-titlebar">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="app-title">Focusline</span>
+            </div>
+            <div class="app-body">
                 <div class="ctl-group">
                   <label>Mode</label>
                   <div class="seg" data-seg="mode">
@@ -134,12 +141,9 @@
                   <label class="row"><span>Dim strength</span> <span class="val" id="strength-val"></span></label>
                   <input class="range" id="strength" type="range" min="0.2" max="0.85" step="0.05" value="0.55" />
                 </div>
-              </div>
             </div>
-            </div>
-           </div>
-           <div class="mb-base"></div>
-          </div>
+          </aside>
+         </div>
         </div>
       </div>
     </section>
