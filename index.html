@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focusline — keep your eyes on the line</title>
+  <meta name="description" content="A focus bar and screen tint for macOS that keep your eyes on the line and easy through long reads. Reading, Focus, Spotlight and Night — one tap each." />
+  <meta property="og:title" content="Focusline for macOS" />
+  <meta property="og:description" content="A focus bar and screen tint that keep your eyes on the line through long reads." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <span class="glyph">≡</span> Focusline
+      </a>
+      <div class="nav-links">
+        <a href="#try">Try it</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#whats-new">What's new</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <a class="btn" href="https://apps.apple.com/app/id6784978549">Download</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="wrap">
+        <p class="eyebrow">macOS menu-bar app</p>
+        <h1>Keep your eyes<br />on the line.</h1>
+        <p class="sub">
+          A reading guide and screen tint that follow you down the page — so long
+          reads stay easy and your focus stays put. Four one-tap Modes, endlessly
+          tunable.
+        </p>
+        <div class="cta">
+          <a class="btn" href="https://apps.apple.com/app/id6784978549">Download on the Mac App Store</a>
+          <a class="btn ghost" href="#try">See it move ↓</a>
+        </div>
+        <p class="meta">
+          <span class="stars">★★★★★</span> &nbsp;·&nbsp; macOS 13 or later &nbsp;·&nbsp; Runs in your menu bar
+        </p>
+      </div>
+    </header>
+
+    <!-- Interactive demo: the REAL behaviour -->
+    <section id="try" style="padding-top: 12px;">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>This is the real thing.</h2>
+          <p>Move your pointer over the page below. Switch Modes and tune the look — exactly like the app does on your whole screen.</p>
+        </div>
+        <div class="demo">
+          <div class="demo-card">
+            <div class="demo-grid">
+              <!-- Reader pane -->
+              <div class="reader" id="reader">
+                <div class="layer" id="dim"></div>
+                <div class="layer" id="band"></div>
+                <div class="layer" id="bar"></div>
+                <div class="reader-text">
+                  <h3>On reading slowly</h3>
+                  <p>There is a particular kind of tiredness that comes not from reading too much, but from reading without an anchor. The eye drifts, the line is lost, and the same sentence is read three times before the mind catches up.</p>
+                  <p>A guide changes that. A quiet line under the words gives the eye something to rest against, and the page stops sliding. Dim the rest of the screen and the world narrows to a single thought at a time.</p>
+                  <p>None of this is new — it is how a finger under the line has always worked. Focusline simply lends you one that never tires, in whatever shape and colour reads best to you.</p>
+                  <p>Try it: glide down this paragraph and watch the guide keep pace. Change the Mode on the right, pick a colour, widen the band. Make it yours.</p>
+                </div>
+                <div class="reader-hint">↑ move your pointer over the text — the guide is live</div>
+              </div>
+
+              <!-- Controls -->
+              <div class="controls">
+                <div class="ctl-group">
+                  <label>Mode</label>
+                  <div class="seg" data-seg="mode">
+                    <button class="on" data-val="reading">Reading</button>
+                    <button data-val="focus">Focus</button>
+                    <button data-val="spotlight">Spotlight</button>
+                    <button data-val="night">Night</button>
+                  </div>
+                </div>
+
+                <div class="ctl-group" id="g-style">
+                  <label>Guide style</label>
+                  <div class="seg" data-seg="style">
+                    <button class="on" data-val="bar">Bar</button>
+                    <button data-val="highlight">Highlight</button>
+                  </div>
+                </div>
+
+                <div class="ctl-group" id="g-shape">
+                  <label>Spotlight shape</label>
+                  <div class="seg" data-seg="shape">
+                    <button class="on" data-val="round">Round</button>
+                    <button data-val="bar">Bar</button>
+                  </div>
+                </div>
+
+                <div class="ctl-group" id="g-color">
+                  <label>Colour</label>
+                  <div class="swatches">
+                    <span class="swatch on" data-color="#ffd15c" style="background:#ffd15c"></span>
+                    <span class="swatch" data-color="#ffe08a" style="background:#ffe08a"></span>
+                    <span class="swatch" data-color="#ff9e7a" style="background:#ff9e7a"></span>
+                    <span class="swatch" data-color="#9ee6c4" style="background:#9ee6c4"></span>
+                    <span class="swatch" data-color="#8fc7ff" style="background:#8fc7ff"></span>
+                  </div>
+                </div>
+
+                <div class="ctl-group" id="g-opacity">
+                  <label class="row"><span>Opacity</span> <span class="val" id="opacity-val"></span></label>
+                  <input class="range" id="opacity" type="range" min="0.2" max="1" step="0.05" value="0.9" />
+                </div>
+
+                <div class="ctl-group" id="g-size">
+                  <label class="row"><span>Size</span> <span class="val" id="size-val"></span></label>
+                  <input class="range" id="size" type="range" min="3" max="16" step="1" value="6" />
+                </div>
+
+                <div class="ctl-group" id="g-spot">
+                  <label class="row"><span>Spotlight radius</span> <span class="val" id="spot-val"></span></label>
+                  <input class="range" id="spot" type="range" min="80" max="240" step="10" value="150" />
+                </div>
+
+                <div class="ctl-group" id="g-strength">
+                  <label class="row"><span>Dim strength</span> <span class="val" id="strength-val"></span></label>
+                  <input class="range" id="strength" type="range" min="0.2" max="0.85" step="0.05" value="0.55" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Four Modes</p>
+          <h2>One tap sets everything up.</h2>
+          <p>Each Mode pairs a reading guide with a screen tint, tuned to a job. Switch from the menu bar or a keyboard shortcut.</p>
+        </div>
+        <div class="cards">
+          <div class="feature">
+            <div class="ico">📖</div>
+            <h3>Reading</h3>
+            <p>A clear line guides every line you read — thin bar or wide highlight, your colour, your width.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🪟</div>
+            <h3>Focus</h3>
+            <p>Everything but your app fades away. The page you're on stays bright; the clutter behind it dims.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🔦</div>
+            <h3>Spotlight</h3>
+            <p>A spotlight on the line you're reading. Round, square, or a full-width band — it follows your cursor.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🌙</div>
+            <h3>Night</h3>
+            <p>A warm, dim wash that's easy on the eyes — low glare and less blue light for late reading.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🎚️</div>
+            <h3>Tune anything</h3>
+            <p>Colour, opacity, thickness, width, position, dim strength. Each Mode remembers its own look.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🖥️</div>
+            <h3>Multi-display</h3>
+            <p>Choose which screens Focusline runs on. Lives quietly in the menu bar, out of your way.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" style="background: var(--bg-soft);">
+      <div class="wrap">
+        <div class="section-head"><h2>Up and reading in a minute.</h2></div>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><h3>Install</h3><p>Download from the Mac App Store. Focusline appears in your menu bar.</p></div>
+          <div class="step"><div class="n">2</div><h3>Pick a Mode</h3><p>Reading, Focus, Spotlight or Night — one click. The guide and tint set themselves up.</p></div>
+          <div class="step"><div class="n">3</div><h3>Make it yours</h3><p>Open Customize to fine-tune the look, or just start reading. It follows your cursor everywhere.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's new -->
+    <section id="whats-new">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">What's new</p><h2>Release notes</h2></div>
+        <div class="changelog">
+          <div class="release">
+            <h3><span class="ver">v0.1</span> <span class="date">First release</span></h3>
+            <ul>
+              <li>Four one-tap Modes: Reading, Focus, Spotlight and Night.</li>
+              <li>Reading guide in Bar, Highlight and Spotlight styles, fully customisable.</li>
+              <li>Screen tint — whole-screen or distraction-free (active app stays clear).</li>
+              <li>Warm Night wash for low-glare late reading.</li>
+              <li>Per-Mode memory, multi-display selection, menu-bar control and keyboard shortcuts.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="background: var(--bg-soft);">
+      <div class="wrap">
+        <div class="section-head"><h2>Questions</h2></div>
+        <div class="faq">
+          <details open><summary>Does Focusline see what's on my screen?</summary><p>No. It reads only your cursor position so the guide can follow it. It has no way of knowing what's under the bar or on the page.</p></details>
+          <details><summary>Will it work in any app?</summary><p>Yes. The guide and tint are a passive overlay drawn on top of everything, so they work in your browser, PDF reader, editor — anywhere.</p></details>
+          <details><summary>What does it need?</summary><p>macOS 13 or later. Focusline runs sandboxed in your menu bar.</p></details>
+          <details><summary>Is my data collected?</summary><p>Focusline uses privacy-respecting analytics and crash reporting to improve the app. No reading content or screen contents are ever collected. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>© 2026 Focusline · Made with care</div>
+      <div style="display:flex; gap:20px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="https://apps.apple.com/app/id6784978549">Mac App Store</a>
+        <a href="mailto:29satnam@gmail.com">Support</a>
+        <a href="https://github.com/29satnam/focusline">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/demo.js"></script>
+</body>
+</html>
